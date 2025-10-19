@@ -1,1 +1,194 @@
-Platzhalter
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clearwater Service – Probennahme & Wasserhygiene</title>
+  <meta name="description" content="Clearwater Service: Zertifizierte Probennahme für Legionellen & Trinkwasser. Schnell, normgerecht, deutschlandweit – mit akkreditierten Laboren." />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="color-scheme" content="light" />
+  <style>
+    :root{
+      --brand:#06b6d4; /* cyan-500 */
+      --brand-dark:#0e7490; /* cyan-700 */
+      --ink:#0f172a; /* slate-900 */
+      --muted:#64748b; /* slate-500 */
+    }
+    html{scroll-behavior:smooth}
+    .glass{backdrop-filter:saturate(140%) blur(8px); background:rgba(255,255,255,.75)}
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 bg-cyan-700 text-white px-3 py-2 rounded-lg">Zum Inhalt springen</a>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3" aria-label="Startseite">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-cyan-600 text-white font-bold">CW</span>
+        <div class="leading-tight">
+          <div class="font-semibold">Clearwater Service</div>
+          <div class="text-xs text-slate-500">Hygiene · Technik · Vertrauen</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#leistungen" class="hover:text-cyan-700">Leistungen</a>
+        <a href="#ablauf" class="hover:text-cyan-700">Ablauf</a>
+        <a href="#kontakt" class="hover:text-cyan-700">Kontakt</a>
+        <a href="#angebot" class="inline-flex items-center gap-2 rounded-xl border border-cyan-200 px-3 py-1.5 text-cyan-800 hover:bg-cyan-50">Angebot</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-cyan-600 via-cyan-500 to-sky-400"></div>
+    <svg class="absolute -top-16 -right-16 h-80 w-80 opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M46.6,-68.4C60.1,-61.8,71.8,-50.2,79.1,-36C86.4,-21.8,89.3,-4.9,87.1,11.1C84.9,27.1,77.6,42.2,66.5,53.9C55.3,65.7,40.3,74.2,24.8,78.2C9.2,82.2,-6.8,81.7,-22.1,77.5C-37.3,73.3,-51.8,65.5,-62.6,54.1C-73.5,42.8,-80.7,27.9,-83.3,12C-85.9,-3.9,-83.9,-20.8,-76.6,-35.4C-69.4,-49.9,-56.9,-62.2,-42.3,-69.2C-27.8,-76.1,-13.9,-77.7,0.1,-77.8C14.2,-78,28.3,-76.6,46.6,-68.4Z" transform="translate(100 100)"/></svg>
+
+    <div class="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <div class="glass rounded-3xl p-6 md:p-10 shadow-xl">
+        <div class="md:flex items-center gap-10">
+          <div class="md:w-7/12">
+            <h1 class="text-3xl md:text-5xl font-semibold text-slate-900">Zertifizierte Probennahme für Legionellen & Trinkwasser</h1>
+            <p class="mt-4 text-slate-700 text-lg">Schnell vor Ort, normgerecht nach <abbr title="DIN EN ISO 19458">ISO 19458</abbr>, Auswertung durch <strong>akkreditierte Labore</strong> – mit vollständiger, behördlich anerkannter Dokumentation.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#angebot" class="inline-flex items-center justify-center rounded-2xl bg-cyan-700 px-5 py-3 text-white font-semibold hover:bg-cyan-800">Angebot anfordern</a>
+              <a href="tel:+49156784646272" class="inline-flex items-center justify-center rounded-2xl border border-white/50 bg-white/80 px-5 py-3 font-semibold text-cyan-800 hover:bg-white">Jetzt anrufen</a>
+            </div>
+            <p class="mt-3 text-sm text-slate-600">Hinweis: Auftragnehmer der Analytik ist stets das akkreditierte Labor; Probennahmen erfolgen im Unterauftrag des Labors.</p>
+          </div>
+          <div class="md:w-5/12 mt-8 md:mt-0">
+            <div class="rounded-2xl bg-white p-5 shadow-md border border-slate-200">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-600 text-white font-bold">Z</span>
+                <div class="text-sm">
+                  <div class="font-semibold">Zertifizierter Probenehmer</div>
+                  <div class="text-slate-500">Deutsche Wasserakademie · 2025</div>
+                </div>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm text-slate-700 list-disc pl-5">
+                <li>Trinkwasser – mikrobiologisch & chemisch</li>
+                <li>Legionellen in Warmwasseranlagen</li>
+                <li>Probentransport & Laborlogistik</li>
+                <li>Behördlich verwertbare Dokumentation</li>
+              </ul>
+              <div class="mt-4 text-xs text-slate-500">Zertifikat-Nr.: 525439032.20999</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="mx-auto max-w-6xl px-4">
+    <!-- Leistungen -->
+    <section id="leistungen" class="py-14">
+      <h2 class="text-center text-2xl md:text-3xl font-semibold">Unsere Leistungen als Probenehmer</h2>
+      <p class="mt-3 text-center text-slate-600">Fachgerecht, transparent kalkuliert und optimal organisiert.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-semibold text-lg">Legionellen-Proben</h3>
+          <p class="mt-2 text-sm text-slate-700">Planung & Entnahme nach ISO 19458 inkl. Protokollierung, Kennzeichnung und Kühlkette.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-semibold text-lg">Trinkwasser – mikrobiologisch/chemisch</h3>
+          <p class="mt-2 text-sm text-slate-700">Entnahme für E. coli, coliforme Keime, Pseudomonas u. a.; Metalle/chemische Parameter nach Vorgabe.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-semibold text-lg">Labor- & Behörden-Dokumentation</h3>
+          <p class="mt-2 text-sm text-slate-700">Vollständige, behördlich verwertbare Unterlagen – digital bereitgestellt.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-semibold text-lg">Technik + Service (optional)</h3>
+          <p class="mt-2 text-sm text-slate-700">Duschkopf-/Perlatorwechsel, Stagnationsspülungen, Sichtkontrolle Technikraum, Reinigung Armaturen.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-semibold text-lg">Termin- & Routenplanung</h3>
+          <p class="mt-2 text-sm text-slate-700">Deutschlandweit im Netzwerk unterwegs – kurze Wege, schnelle Termine, faire Anfahrtspauschalen.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="font-semibold text-lg">Beratung zur Prüfplicht</h3>
+          <p class="mt-2 text-sm text-slate-700">Klarheit, ob und wie oft geprüft werden muss (z. B. bei zentralen Warmwasseranlagen in Beherbergung).</p>
+        </article>
+      </div>
+
+      <p class="mt-6 text-center text-xs text-slate-500">Hinweis: Analytik ausschließlich über akkreditierte Labore. Probennehmer handeln im Unterauftrag des Labors.</p>
+    </section>
+
+    <!-- Ablauf -->
+    <section id="ablauf" class="py-14 border-t border-slate-200">
+      <h2 class="text-center text-2xl md:text-3xl font-semibold">So läuft’s ab</h2>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-5">
+        <div class="rounded-2xl bg-white p-6 shadow-sm border border-slate-200">
+          <div class="text-sm font-semibold">1 · Klärung</div>
+          <p class="mt-2 text-sm text-slate-700">Kurzcheck zur Prüfplicht & Umfang. Auf Wunsch Self-Check per QR.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm border border-slate-200">
+          <div class="text-sm font-semibold">2 · Termin</div>
+          <p class="mt-2 text-sm text-slate-700">Wir koordinieren Zeitfenster & Zugänge, inkl. Musterlisten der Entnahmestellen.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm border border-slate-200">
+          <div class="text-sm font-semibold">3 · Probennahme</div>
+          <p class="mt-2 text-sm text-slate-700">Normgerecht, dokumentiert, gekühlt transportiert – direkt ins Labor.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-sm border border-slate-200">
+          <div class="text-sm font-semibold">4 · Bericht</div>
+          <p class="mt-2 text-sm text-slate-700">Laborbefund + Hinweise. Bei Bedarf Maßnahmenplan & Folgetermin.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Angebot / Formular CTA -->
+    <section id="angebot" class="py-14 border-t border-slate-200">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-2xl md:text-3xl font-semibold">Angebot in 2 Minuten anfordern</h2>
+        <p class="mt-2 text-slate-600">Digitales Formular mit Sofort-Kalkulation & PDF. Unterschrift direkt am Gerät.</p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a href="clearwater_digitales_angebot_auftragsformular_html.html" class="inline-flex items-center justify-center rounded-2xl bg-cyan-700 px-5 py-3 text-white font-semibold hover:bg-cyan-800">Formular öffnen</a>
+          <a href="https://wa.me/49156784646272" class="inline-flex items-center justify-center rounded-2xl border border-cyan-200 px-5 py-3 font-semibold text-cyan-800 hover:bg-cyan-50">WhatsApp starten</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">Optional: QR-Code zum Self-Check einbinden – <em>qrcode_selbsttest.png</em> hier verlinken.</p>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-14 border-t border-slate-200">
+      <div class="mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
+          <h2 class="text-xl font-semibold">Kontakt</h2>
+          <address class="not-italic mt-3 text-slate-700">
+            Steffen Kuhn · zertifizierter Probenehmer<br/>
+            Kasseler Str. 13 · 98574 Schmalkalden
+          </address>
+          <div class="mt-3 space-y-1">
+            <div><a class="text-cyan-700 hover:underline" href="tel:+49156784646272">+49 156 78 4646 272</a></div>
+            <div><a class="text-cyan-700 hover:underline" href="mailto:clearwaterproben@gmail.com">clearwaterproben@gmail.com</a></div>
+          </div>
+          <p class="mt-3 text-sm text-slate-600">Netzwerkpartner: Aquasummarum · Zusammenarbeit mit akkreditierten Laboren.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 border border-slate-200 shadow-sm">
+          <h3 class="font-semibold">Rechtliches in Kürze</h3>
+          <ul class="mt-2 list-disc pl-5 text-sm text-slate-700">
+            <li>Probennahme nach DIN EN ISO 19458</li>
+            <li>Analytik: akkreditierte Labore (ISO/IEC 17025)</li>
+            <li>Dokumentation für Behörden geeignet</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white/70">
+    <div class="mx-auto max-w-6xl px-4 py-8 text-center text-sm text-slate-600">
+      © <span id="year"></span> Clearwater Service · <a class="text-cyan-700 hover:underline" href="#">Datenschutz</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
