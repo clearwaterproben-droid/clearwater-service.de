@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selbsttest: Prüfpﬂicht Wasser (Legionellen) – Clearwater Service</title>
+  <meta name="description" content="Interaktiver Selbsttest als Frage‑Antwort‑Dialog: Bin ich prüfpﬂichtig nach TrinkwV? Inkl. Ergebnis, Handlungsempfehlung und Terminvereinbarung." />
+  <style>
+    :root{
+      --bg:#f5f7fb; --card:#ffffff; --text:#1f2937; --muted:#6b7280; --brand:#0ea5e9; --ok:#16a34a; --warn:#f59e0b; --err:#dc2626; --accent:#0ea5e91a;
+      --shadow:0 8px 30px rgba(0,0,0,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial; color:var(--text); background:radial-gradient(1200px 600px at 80% -10%, #e0f2fe 0, transparent 60%), var(--bg)}
+    a{color:var(--brand); text-decoration:none}
+    .wrap{max-width:1050px; margin:0 auto; padding:28px 18px 72px}
+    header{display:flex; gap:18px; align-items:center; justify-content:space-between; margin-bottom:18px}
+    .brand{display:flex; gap:14px; align-items:center}
+    .logo{width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,#0ea5e9,#22d3ee); box-shadow:var(--shadow); display:grid; place-items:center}
+    .logo svg{filter:drop-shadow(0 2px 2px rgba(0,0,0,.15))}
+    .brand h1{margin:0; font-size:18px}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px}
+    .grid{display:grid; grid-template-columns: 380px 1fr; gap:22px}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .avatar{background:linear-gradient(180deg,#e0f2fe,transparent 60%); border-radius:var(--radius); padding:18px; position:relative}
+    .bubble{background:#fff; border-radius:14px; padding:14px 16px; box-shadow:var(--shadow); position:absolute; left:18px; top:18px; max-width:300px}
+    .bubble b{color:#0b6ea8}
+    .muted{color:var(--muted)}
+    .qa{display:flex; flex-direction:column; gap:16px}
+    .step{border:1px solid #e5e7eb; border-radius:14px; padding:16px}
+    .step h3{margin:0 0 6px}
+    .choices{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .btn{appearance:none; border:1px solid #d1d5db; background:#fff; padding:10px 14px; border-radius:12px; cursor:pointer; transition:.15s; font-weight:600}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,0,0,.07)}
+    .btn[data-selected="true"]{background:var(--accent); border-color:#bae6fd}
+    .btn.primary{border:none; background:linear-gradient(135deg,#0ea5e9,#22d3ee); color:white}
+    .btn.ghost{background:transparent; border-color:transparent; text-decoration:underline}
+    .result{border-radius:16px; padding:18px; display:none}
+    .result.ok{background:#ecfdf5; border:1px solid #bbf7d0}
+    .result.warn{background:#fff7ed; border:1px solid #fed7aa}
+    .result.err{background:#fef2f2; border:1px solid #fecaca}
+    .result h2{margin:0 0 6px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
+    .poster{margin-top:26px; border:1px dashed #cbd5e1; border-radius:12px; padding:16px; background:#fafafa}
+    .poster h4{margin:0 0 8px}
+    .poster small{display:block; color:var(--muted)}
+    .hr{height:1px; background:#e5e7eb; margin:18px 0}
+    footer{margin-top:28px; color:var(--muted); font-size:14px}
+    .tag{display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; background:#e0f2fe; color:#075985; margin-top:4px}
+      .logo-img{width:44px;height:44px;border-radius:12px;box-shadow:var(--shadow);object-fit:contain;background:#fff;padding:4px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="logo-img" src="clearwater.service-logo.png" alt="clearwater.service Logo" />
+        <div>
+          <h1>Selbsttest Prüfpﬂicht Wasser <span class="tag">Dialog</span></h1>
+          <div class="muted">Geführt von deinem Wasser‑Profi – in 2–3 Minuten.</div>
+        </div>
+      </div>
+      <div>
+        <a class="btn ghost" href="#poster">QR‑Poster</a>
+      </div>
+    </header>
+
+    <section class="card grid" id="dialog">
+      <div class="avatar">
+        <div class="bubble"><b>„Moin! Ich bin dein Wasser‑Profi.“</b><br/>Ich stelle dir 5 kurze Fragen. Danach weißt du, ob du prüfpﬂichtig bist – und wie’s weitergeht.</div>
+        <!-- Inline SVG Illustration: Sympathischer Handwerker/Techniker -->
+        <svg width="100%" height="100%" viewBox="0 0 420 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sympathischer Techniker mit Kappe und Klemmbrett">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#93c5fd"/>
+              <stop offset="1" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+          <!-- background curve -->
+          <path d="M0,300 Q210,230 420,300 L420,360 L0,360 Z" fill="url(#g1)" opacity=".35" />
+          <!-- body -->
+          <g transform="translate(120,60)">
+            <!-- head -->
+            <circle cx="90" cy="55" r="38" fill="#fde68a"/>
+            <!-- cap -->
+            <path d="M52,50 q38-30 76 0 l0,8 q-38 10-76 0z" fill="#0ea5e9"/>
+            <rect x="52" y="50" width="76" height="10" rx="5" fill="#0284c7"/>
+            <!-- eyes & smile -->
+            <circle cx="78" cy="58" r="4" fill="#111827"/>
+            <circle cx="102" cy="58" r="4" fill="#111827"/>
+            <path d="M78,72 q12,12 24,0" stroke="#111827" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- torso -->
+            <rect x="40" y="90" width="120" height="110" rx="16" fill="#bae6fd" stroke="#0ea5e9"/>
+            <!-- logo patch -->
+            <rect x="130" y="110" width="20" height="14" rx="3" fill="#0ea5e9"/>
+            <!-- arm + clipboard -->
+            <path d="M160,120 q26,18 10,44" fill="#bae6fd"/>
+            <rect x="168" y="150" width="64" height="90" rx="8" fill="#fff" stroke="#94a3b8"/>
+            <line x1="176" y1="164" x2="220" y2="164" stroke="#94a3b8"/>
+            <line x1="176" y1="178" x2="220" y2="178" stroke="#94a3b8"/>
+            <line x1="176" y1="192" x2="220" y2="192" stroke="#94a3b8"/>
+            <line x1="176" y1="206" x2="220" y2="206" stroke="#94a3b8"/>
+          </g>
+        </svg>
+      </div>
+
+      <div>
+        <div class="qa" id="qa"></div>
+
+        <div id="result" class="result" role="status" aria-live="polite"></div>
+
+        <div class="hr"></div>
+        <div class="cta">
+          <button id="resetBtn" class="btn" type="button">Neu starten</button>
+          <a id="whatsAppLink" class="btn primary" href="#" target="_blank" rel="noopener">Termin via WhatsApp anfragen</a>
+          <a id="phoneLink" class="btn" href="tel:+49XXXXXXXXXX">Anrufen</a>
+          <a id="mailLink" class="btn" href="mailto:info@clearwater.service?subject=Anfrage%20Legionellenpr%C3%BCfung">E‑Mail senden</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="poster" class="card poster">
+      <h4>QR‑Poster für Aushang / Flyer</h4>
+      <p class="muted">Scanne den Code und starte den Selbsttest in Sekunden. Für Ausdruck in A5/A4 geeignet.</p>
+      <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap">
+        <img id="qr" alt="QR‑Code zum Selbsttest" width="180" height="180" style="border-radius:12px; box-shadow:var(--shadow); background:#fff"/>
+        <div>
+          <div style="font-weight:700">Selbsttest Prüfpﬂicht Wasser</div>
+          <small class="muted">Dieser QR‑Code verweist auf diese Seite (URL wird automatisch übernommen).</small>
+          <div style="margin-top:10px">
+            <button id="dlQR" class="btn">QR als PNG speichern</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>Hinweis: Dieser Selbsttest liefert eine erste Einschätzung. Verbindliche Prüfpﬂichten ergeben sich aus der Trinkwasserverordnung (TrinkwV) und den technischen Regeln. Wir erklären dir im Erstgespräch, was konkret für deinen Betrieb gilt.</div>
+    </footer>
+  </div>
+
+  <script>
+    // --- CONFIG (Editierbar) -------------------------------------------------
+    const WHATSAPP_NUMBER = '49XXXXXXXXXX'; // nur Ziffern, Landesvorwahl ohne +
+    const WHATSAPP_TEXT = 'Hallo, ich m%C3%B6chte eine Legionellenpr%C3%BCfung / Trinkwasser-Selbsttest-Auswertung anfragen.';
+    const PHONE_NUMBER = '+49XXXXXXXXXX';
+    const MAILTO = 'info@clearwater.service';
+
+    // --- Fragen / Logik ------------------------------------------------------
+    // Jede Frage hat id, text, choices:[{id,label}], optional hint
+    const QUESTIONS = [
+      {
+        id: 'q1',
+        text: 'Betreibst du eine zentrale Warmwasseranlage?',
+        hint: 'Zentrale Erzeugung (z. B. Speicher/Boiler) für mehrere Zapfstellen.',
+        choices: [
+          {id:'yes', label:'Ja'},
+          {id:'no', label:'Nein, nur Kaltwasser oder dezentrale Geräte'},
+          {id:'unsure', label:'Weiß nicht'}
+        ]
+      },
+      {
+        id: 'q2',
+        text: 'Hat der Warmwasserspeicher ≥ 400 Liter?',
+        hint: 'Angabe am Typenschild. Mehrere Speicher addieren sich.',
+        choices: [
+          {id:'yes', label:'Ja, ≥ 400 L'},
+          {id:'no', label:'Nein, < 400 L'},
+          {id:'unsure', label:'Weiß nicht'}
+        ]
+      },
+      {
+        id: 'q3',
+        text: 'Ist das Leitungsvolumen im Warmwassersystem > 3 Liter?',
+        hint: 'Richtwert: Zirkulationsleitung vorhanden oder längere Leitungswege zu Duschen/Gästezimmern.',
+        choices: [
+          {id:'yes', label:'Ja, > 3 L / Zirkulation'},
+          {id:'no', label:'Nein'},
+          {id:'unsure', label:'Weiß nicht'}
+        ]
+      },
+      {
+        id: 'q4',
+        text: 'Gibt es Duschen oder Gästezimmer mit Warmwasser?',
+        choices: [
+          {id:'yes', label:'Ja'},
+          {id:'no', label:'Nein'}
+        ]
+      },
+      {
+        id: 'q5',
+        text: 'Betriebstyp auswählen',
+        hint: 'Mehrere möglich. Dient der Einordnung der Betreiberpflichten.',
+        choices: [
+          {id:'hotel', label:'Beherbergung (Hotel, Pension, Ferienhof, Camping)'},
+          {id:'wohn', label:'Vermietete Wohngebäude / WEG'},
+          {id:'pflege', label:'Pflege, Klinik, KiTa, Schule, Sport'},
+          {id:'gewerbe', label:'Sonstiger gewerblicher Betrieb'},
+          {id:'privat', label:'Privates Einfamilienhaus'}
+        ],
+        multi:true
+      }
+    ];
+
+    // Bewertungslogik: Grob an die Definition "Großanlage" angelehnt.
+    function evaluate(answers){
+      const a = answers;
+      // schnelle Negativkriterien
+      if(a.q1 === 'no'){
+        return {
+          level:'ok',
+          title:'Vermutlich keine unmittelbare Untersuchungspflicht',
+          details:'Ohne zentrale Warmwasseranlage entfällt in der Regel die regelmäßige Untersuchungspflicht für Legionellen. Dennoch empfehlen wir eine hygienische Bestandsaufnahme.',
+          next:['Optionaler Check vor Ort','Spül- & Temperaturkonzept prüfen']
+        };
+      }
+
+      // Großanlage gegeben, wenn Speicher >=400L ODER Leitungsvolumen >3L
+      const gross = (a.q2 === 'yes') || (a.q3 === 'yes');
+      const unsures = [a.q2,a.q3].includes('unsure');
+      const dusche = a.q4 === 'yes';
+      const typ = a.q5 || [];
+      const sensibel = typ.includes('pflege');
+      const beherb = typ.includes('hotel');
+      const wohn = typ.includes('wohn');
+      const privat = typ.includes('privat');
+
+      if(!gross && !unsures){
+        return {
+          level:'warn',
+          title:'Wahrscheinlich keine Großanlage – Pflicht unklar',
+          details:'Wenn Speicher < 400 L und Leitungsvolumen ≤ 3 L, besteht meist keine regelmäßige Untersuchungspflicht nach Großanlagen-Kriterium. Bei Duschen, sensiblen Bereichen oder wechselnder Nutzung kann dennoch eine Prüfung sinnvoll sein.',
+          next:['Kurz-Check vor Ort','Stichproben- oder Anlassprüfung planen']
+        }
+      }
+
+      if(gross && (beherb || wohn || sensibel || dusche)){
+        return {
+          level:'err',
+          title:'Hohe Wahrscheinlichkeit: Untersuchungspflicht',
+          details:'Es spricht viel dafür, dass für deine Anlage regelmäßige Laboruntersuchungen auf Legionellen erforderlich sind (TrinkwV, Großanlage). Das genaue Intervall hängt von Nutzung & Risikoprofil ab – klären wir im Erstgespräch.',
+          next:['Bestandsaufnahme & Beprobungsplan','Termin für Probenahme vereinbaren']
+        }
+      }
+
+      // Unsicherheiten
+      if(unsures){
+        return {
+          level:'warn',
+          title:'Einschätzung unsicher – Daten fehlen',
+          details:'Einige Schlüsselangaben (Speichergröße/Leitungsvolumen) sind unklar. Wir prüfen das schnell vor Ort oder anhand von Unterlagen (Typenschilder, Skizzen).',
+          next:['Daten sichten (Fotos/Pläne)','Kurztermin zur Klärung']
+        }
+      }
+
+      // Default
+      return {
+        level:'warn',
+        title:'Nicht eindeutig – wir prüfen das fix',
+        details:'Mit wenigen Zusatzinfos lässt sich die Pflicht eindeutig klären.',
+        next:['Kurzgespräch vereinbaren','Unterlagen prüfen']
+      }
+    }
+
+    // --- UI Rendering --------------------------------------------------------
+    const qa = document.getElementById('qa');
+    const resultEl = document.getElementById('result');
+    const resetBtn = document.getElementById('resetBtn');
+
+    const answers = {};
+
+    function render(){
+      qa.innerHTML = '';
+      QUESTIONS.forEach(q => {
+        const step = document.createElement('div');
+        step.className = 'step';
+        const h = document.createElement('h3');
+        h.textContent = q.text;
+        step.appendChild(h);
+        if(q.hint){
+          const p = document.createElement('div'); p.className='muted'; p.textContent=q.hint; step.appendChild(p);
+        }
+        const choices = document.createElement('div');
+        choices.className = 'choices';
+
+        if(q.multi){
+          (q.choices||[]).forEach(c => {
+            const b = document.createElement('button');
+            b.className = 'btn';
+            b.type='button';
+            b.textContent = c.label;
+            b.dataset.val = c.id;
+            b.addEventListener('click', () => {
+              answers[q.id] = answers[q.id] || [];
+              const arr = answers[q.id];
+              const idx = arr.indexOf(c.id);
+              if(idx>=0){ arr.splice(idx,1); b.dataset.selected = 'false'; }
+              else { arr.push(c.id); b.dataset.selected = 'true'; }
+              update();
+            });
+            choices.appendChild(b);
+          });
+        } else {
+          (q.choices||[]).forEach(c => {
+            const b = document.createElement('button');
+            b.className = 'btn';
+            b.type='button';
+            b.textContent = c.label;
+            b.dataset.val = c.id;
+            b.addEventListener('click', () => { answers[q.id] = c.id; update(); });
+            choices.appendChild(b);
+          });
+        }
+
+        step.appendChild(choices);
+        qa.appendChild(step);
+      });
+    }
+
+    function update(){
+      // mark selections
+      document.querySelectorAll('.step').forEach((step, i) => {
+        const q = QUESTIONS[i];
+        const val = answers[q.id];
+        step.querySelectorAll('.btn').forEach(btn => {
+          if(q.multi){
+            const chosen = Array.isArray(val) && val.includes(btn.dataset.val);
+            btn.dataset.selected = chosen ? 'true' : 'false';
+          } else {
+            btn.dataset.selected = (val === btn.dataset.val) ? 'true' : 'false';
+          }
+        });
+      });
+
+      // evaluate when we have first 4 answers at least
+      const keysNeeded = ['q1','q2','q3','q4'];
+      if(keysNeeded.every(k => answers[k])){
+        const res = evaluate(answers);
+        showResult(res);
+      }
+    }
+
+    function showResult(res){
+      resultEl.style.display = 'block';
+      resultEl.className = 'result ' + (res.level==='ok'?'ok':res.level==='err'?'err':'warn');
+      resultEl.innerHTML = `
+        <h2>${res.title}</h2>
+        <div>${res.details}</div>
+        ${res.next?.length ? `<ul style="margin:10px 0 0 18px">${res.next.map(n=>`<li>${n}</li>`).join('')}</ul>`:''}
+      `;
+      // update CTAs
+      const whatsAppLink = document.getElementById('whatsAppLink');
+      whatsAppLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`;
+      document.getElementById('phoneLink').href = `tel:${PHONE_NUMBER}`;
+      document.getElementById('mailLink').href = `mailto:${MAILTO}?subject=Anfrage%20Wasser%20Pr%C3%BCfung`;
+    }
+
+    resetBtn.addEventListener('click', () => { for(const k in answers) delete answers[k]; render(); resultEl.style.display='none'; });
+
+    // --- QR Code (externer Dienst) ------------------------------------------
+    function setQR(){
+      const url = window.location.href.split('#')[0];
+      const qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=360x360&data=${encodeURIComponent(url)}`;
+      const qrImg = document.getElementById('qr');
+      qrImg.src = qrURL;
+      document.getElementById('dlQR').addEventListener('click', () => {
+        const a = document.createElement('a');
+        a.href = `https://api.qrserver.com/v1/create-qr-code/?size=1024x1024&data=${encodeURIComponent(url)}`;
+        a.download = 'QR_Selbsttest_Clearwater.png';
+        a.click();
+      });
+    }
+
+    // init
+    render();
+    update();
+    setQR();
+  </script>
+</body>
+</html>
